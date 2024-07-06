@@ -29,7 +29,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'labrynth.App'
+    mainClass = 'labrynth.game.App'
 }
 
 tasks.named('test') {
