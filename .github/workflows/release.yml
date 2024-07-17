@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Automatic Release
-        uses: Fulminazzo/java-automatic-release@v1
+        uses: NolanKnight/java-automatic-release@v1
         with:
           java-version: 17
         env:
