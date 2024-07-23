@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Automatic Release
-        uses: NolanKnight/java-automatic-release@v1
+        uses: NolanKnight/java-automatic-release@v2
         with:
           java-version: 17
         env:
@@ -21,4 +21,3 @@ jobs:
           REPOSITORY_NAME: ${{ github.event.repository.name }}
           # Message specified in the commit
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
-          VERSION: 1.0.0
