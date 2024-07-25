@@ -9,18 +9,17 @@ permissions:
 
 # Jobs that will execute
 jobs:
-  if_merged:
+  release:
     if: github.event.pull_request.merged == true
-    release:
-      name: Setup Environment, Build JAR and Release Project
-      runs-on: ubuntu-latest
-      steps:
-        - name: Automatic Release
-          uses: NolanKnight/java-automatic-release@v4
-          with:
-            java-version: 17
-          env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            REPOSITORY_NAME: ${{ github.event.repository.name }}
-            # Message specified in the commit
-            COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+    name: Setup Environment, Build JAR and Release Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Automatic Release
+        uses: NolanKnight/java-automatic-release@v4
+        with:
+          java-version: 17
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY_NAME: ${{ github.event.repository.name }}
+          # Message specified in the commit
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
