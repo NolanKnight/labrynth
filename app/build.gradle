@@ -10,9 +10,10 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
-version = '1.0.0'
+version = '1.0.2'
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -32,7 +33,13 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'labrynth.game.App'
+    mainClass = 'labrynth.game.MainGameLoop'
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': application.mainClass
+  }
 }
 
 tasks.named('test') {
